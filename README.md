@@ -1,11 +1,27 @@
-# Roulette
-Simulazione metodo roulette (MATLAB) per valutare se è vincente nel lungo periodo. Il metodo andrebbe usato su roulette unbiased (non truccate).
-Usando la funzione rand posso simulare un'estrazione casuale. 
-Il metodo simulato è quello presentato in questo video https://www.youtube.com/watch?v=TiYGSuyGSNc .
-Sostanzialemente si effettua una prima puntata che ha la prob di vittoria del 80%:
--in caso di vincita si prosegue.
--in caso di perdita si effettua una puntata al 50%, in cui si scommette l'ammontate perso.
-    --in caso di vincita, avrei riguadagnato tutto e riparto con le scommesse all'80%.
-    --in caso di perdita continuo con la puntata al 50%, raddioppiando sempre l'importo scommesso. 
+# Simulation of a roulette method on MATLAB 
+During Covid I found this method on YouTube: https://www.youtube.com/watch?v=TiYGSuyGSNc. I got curious and I decided to test it, to evaluate if it is profitable in the long run. 
 
-Esempio: punto 5$ al 80% -> perdo -> punto 5$ al 50% -> perdo -> punto 10$ al 50% -> perdo -> punto 20$ al 50% -> vinco -> ho guadagnato 40$ ossia 20 + 10 + 5 + 5, sono tornato in pari!
+I used the **rand** function to simulate a random draw.
+
+## Method description
+You start with an initial bet with an 80% chance of winning:
+
+- In case of a win, you continue with the same bet.
+- In case of a loss, you place a 50% (winning prob) bet, where you bet the amount lost.
+  - In case of a win, you would have regained everything and restart with the 80% bets.
+  - In case of a loss, you continue with the 50% bet, always **doubling** the amount wagered.
+
+## Example
+1. Bet $5 at 80% -> lose
+2. Bet $5 at 50% -> lose
+3. Bet $10 at 50% -> lose
+4. Bet $20 at 50% -> win -> I have won $40, which is 20 + 10 + 5 + 5, I have broken even!
+5. Bet $5 at 80% ..
+
+## Spoiler
+```
+Assuming my simulation is correct, you will always lose all your money! 
+```
+Sooner or later you will encounter a losing streak at 50% bets that will lead you to spend all your money. For instance, after 20k bets you may lose 25 bets at 50% in a row. 
+
+Unfortunately I have to continue studying engineering :rofl:
